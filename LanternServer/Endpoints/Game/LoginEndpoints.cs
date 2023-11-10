@@ -7,6 +7,7 @@ using Bunkum.Core.Responses;
 using Bunkum.Listener.Protocol;
 using Bunkum.Protocols.Http;
 using Lantern.Attributes;
+using Lantern.Helpers;
 using Lantern.Types.Game.Login;
 
 namespace Lantern.Endpoints.Game;
@@ -37,8 +38,7 @@ public class LoginEndpoints : EndpointGroup
     [GameEndpoint("login", HttpMethods.Post, ContentType.Xml)]
     public static LoginResultResponse Login(RequestContext context)
     {
-        // TODO: generate a token
-        string token = "token";
+        string token = CryptoHelper.GenerateAuthToken();
 
         return new LoginResultResponse
         {
