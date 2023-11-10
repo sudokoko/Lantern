@@ -2,7 +2,6 @@
 // Copyright (C) 2023 sudokoko/Metraberryy
 
 global using static System.Net.HttpStatusCode;
-
 using Bunkum.Core;
 using Lantern;
 

@@ -1,17 +1,36 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <RootNamespace>Lantern</RootNamespace>
+        <AssemblyName>LanternServer</AssemblyName>
+    </PropertyGroup>
+    
+    <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>Lantern</RootNamespace>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <PublishSingleFile>true</PublishSingleFile>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Bunkum" Version="4.3.3" />
-      <PackageReference Include="Bunkum.Protocols.Http" Version="4.3.3" />
+        <PackageReference Include="Bunkum" Version="4.3.3"/>
+        <PackageReference Include="Bunkum.Listener" Version="4.3.3" />
+        <PackageReference Include="Bunkum.Protocols.Http" Version="4.3.3"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Include="EasyHotReload" Version="1.0.0"/>
+        <PackageReference Include="JetBrains.Annotations" Version="2023.3.0"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Include="NotEnoughLogs" Version="2.0.3"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Types\Game\" />
+    </ItemGroup>
 
 </Project>

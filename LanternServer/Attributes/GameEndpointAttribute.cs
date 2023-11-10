@@ -3,13 +3,13 @@
 
 using Bunkum.Protocols.Http;
 
-namespace Lantern.Endpoints.API;
+namespace Lantern.Attributes;
 
-public class ApiEndpointAttribute : HttpEndpointAttribute
+public class GameEndpointAttribute : HttpEndpointAttribute
 {
-    private const string basePath = "/v1/";
+    private const string basePath = "/game/";
 
-    public ApiEndpointAttribute
+    public GameEndpointAttribute
     (
         string path,
         HttpMethods method = HttpMethods.Get,
