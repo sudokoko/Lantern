@@ -33,7 +33,8 @@ Must be one of the following:
 * **refactor**: A code change that neither fixes a bug nor adds a feature.
 * **perf**: A code change that improves performance.
 * **test**: Adding missing tests.
-* **chore**: Changes to the build process or auxiliary tools and libraries such as documentation generation.
+* **chore**: Changes to the build process or auxiliary tools and libraries such as documentation generation, or changes
+             to project configuration files.
 
 #### Scope
 
