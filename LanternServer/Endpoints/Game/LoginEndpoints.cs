@@ -7,8 +7,11 @@ using Bunkum.Core.Responses;
 using Bunkum.Listener.Protocol;
 using Bunkum.Protocols.Http;
 using Lantern.Attributes;
+using Lantern.Database;
 using Lantern.Helpers;
+using Lantern.Types.Database.User;
 using Lantern.Types.Game.Login;
+using NPTicket;
 
 namespace Lantern.Endpoints.Game;
 
@@ -36,10 +39,13 @@ public class LoginEndpoints : EndpointGroup
     public static string Announcements(RequestContext context) => "announce";
 
     [GameEndpoint("login", HttpMethods.Post, ContentType.Xml)]
-    public static LoginResultResponse Login(RequestContext context)
+    public static LoginResultResponse Login(RequestContext context, LanternDatabaseContext databaseContext, Stream body)
     {
-        string token = CryptoHelper.GenerateAuthToken();
+        Ticket npTicket = Ticket.ReadFromStream(body);
 
+        _ = databaseContext.FindUserWithName(npTicket.Username) ?? databaseContext.CreateUser(npTicket.Username);
+
+        string token = CryptoHelper.GenerateAuthToken();
         return new LoginResultResponse
         {
             AuthTicket = $"MM_AUTH={token}",
